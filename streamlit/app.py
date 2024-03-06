@@ -17,7 +17,7 @@ import numpy as np
 st.title('hello there \n this is a webapp than can predict your heart attack with +99% precision score')
 age = st.number_input('age', 20, 100)
 gender = st.selectbox('gender', ['Male', 'Female'])
-height = st.select_slider('height', np.arange(80, 200))
+height = st.select_slider('height', np.arange(80, 201))
 weight = st.select_slider('weight', np.arange(50, 121))
 blood_pressure = st.text_input('blood pressure', '120/80')
 cholesterol = st.number_input('cholestrol', 50, 400)
