@@ -16,15 +16,20 @@ smoke = st.selectbox('Smoker', ['Yes', 'No'])
 exercise = st.number_input('Exercise(hours/week)', 0, 500)
 
 model = joblib.load('HeartAttack.joblib')
-def predict(data):
+def predict():
+    data = [age, gender, height, weight, blood_pressure, cholesterol, glucose, smoke, exercise]
     data_features = ['ID', 'Name', 'Age', 'Gender', 'Height(cm)', 'Weight(kg)',
         'Blood Pressure(mmHg)', 'Cholesterol(mg/dL)', 'Glucose(mg/dL)',
         'Smoker', 'Exercise(hours/week)']
     data_df = pd.DataFrame([['n', 'n']+data], columns=data_features)
-    return model.predict(data_df)[0]
-data = [23, 'Male', 173, 56, '120/80', 170, 80, 'No', 2]
-if predict(data)==0:
-  st.baloons()
-  st.success("you won't get hear attack")
-else:
-  st.warning('you may have heart attack')
+    if model.predict(data_df)[0]==0:
+      st.success("you won't get heart attack")
+      st.balloons()
+    else:
+      st.warning('you may have heart attack')
+
+trigger = st.button('predict', on_click=predict)
+
+
+
+
