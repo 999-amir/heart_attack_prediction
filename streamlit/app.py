@@ -14,3 +14,13 @@ import streamlit as st
 # predict(data)
 
 st.title('hello there \n this is a webapp than can predict your heart attack with +99% precision score')
+
+age = st.number_input('age', 20, 100)
+gender = st.selectbox('Male', 'Female')
+height = st.number_input('height', 80, 200)
+weight = st.number_input('weight', 50, 120)
+blood_pressure = st.text_input('blood pressure', '120/80')
+cholesterol = st.number_input('cholestrol', 50, 400)
+glucose = st.number_input('glucose', 30, 200)
+smoker = st.select_box('Yes', 'No')
+exercise = st.number_input('exercise', 0, 500)
