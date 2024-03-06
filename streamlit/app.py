@@ -2,6 +2,7 @@ import pandas as pd
 import joblib
 from utils import PreProcessor
 import streamlit as st
+import numpy as np
 
 # model = joblib.load('HeartAttack.joblib')
 # def predict(data):
@@ -16,8 +17,8 @@ import streamlit as st
 st.title('hello there \n this is a webapp than can predict your heart attack with +99% precision score')
 age = st.number_input('age', 20, 100)
 gender = st.selectbox('gender', ['Male', 'Female'])
-height = st.select_slider('height', [80, 200])
-weight = st.select_slider('weight', [50, 120])
+height = st.select_slider('height', np.arange(20, 101))
+weight = st.select_slider('weight', np.arange(50, 121))
 blood_pressure = st.text_input('blood pressure', '120/80')
 cholesterol = st.number_input('cholestrol', 50, 400)
 glucose = st.number_input('glucose', 30, 200)
